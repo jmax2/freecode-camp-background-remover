@@ -1,0 +1,39 @@
+From inside the backend folder, start the server:
+
+```
+uvicorn api.main:app --reload
+```
+Now open a new terminal and run:
+```
+curl http://localhost:8000/health
+
+```
+
+Testing the Endpoint With curl
+Before building the frontend, we’ll test the backend directly.
+
+Run this command:
+```
+curl -X POST \
+  -F "file=@person.jpg" \
+  http://localhost:8000/remove-bg \
+  --output result.png
+```
+
+modello in C:\Users\Utente\.rembg\models\bria-rmbg
+
+
+Updating the Frontend to Use the Live Backend
+Open app.js.
+
+Replace:
+
+```
+http://localhost:8000/remove-bg
+```
+With:
+
+```
+https://YOUR_CLOUD_RUN_URL/remove-bg
+```
+Save the file and reload the frontend.
